@@ -1,0 +1,30 @@
+<h1>Update <%= @product.name() %></h1>
+
+<form action="/inventory_edit" method="post">
+  <input type="hidden" name="id" value="<%= @product.id() %>">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Edit item name:</label>
+  <input type="text" name="name">
+
+  <button type="submit">Update Product</button>
+</form>
+
+</br>
+
+<form action="/price_edit" method="post">
+  <input type="hidden" name="id" value="<%= @product.id() %>">
+  <input type="hidden" name="_method" value="patch">
+  <label for="price">Edit price:</label>
+  <input type="text" name="price">
+
+  <button type="submit">Update Price</button>
+</form>
+
+</br>
+
+<form action="/product_delete" method="post">
+  <input type="hidden" name="id" value="<%= @product.id() %>">
+  <input type="hidden" name="_method" value="delete">
+
+  <button type="submit">Delete Product</button>
+</form>

@@ -1,0 +1,21 @@
+<h1>Welcome to the D&B Emporium</h1>
+
+<form action="/products" method="post">
+  <label for="name">Product Name</label>
+  <input type="text" name="name">
+  <label for="price">Price</label>
+  <input type="text" name="price">
+
+  <button type="submit">Add to inventory!</button>
+
+</form>
+
+<% if @products.any?() %>
+  <% @products.each() do |product| %>
+    <ul>
+      <li> <%= product.name() %> $<%= product.price() %><a href="/product_edit/<%= product.id() %>">Edit or delete item</a></li>
+    </ul>
+  <% end %>
+  <% else %>
+    <p>Oh no! You have no inventory!</p>
+<% end %>
