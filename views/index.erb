@@ -13,7 +13,13 @@
 <% if @products.any?() %>
   <% @products.each() do |product| %>
     <ul>
-      <li> <%= product.name() %> $<%= product.price() %><a href="/product_edit/<%= product.id() %>">Edit or delete item</a></li>
+      <form action="/purchase/<%= @purchase.id() %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <li> <input type="checkbox" name="bought_items[]"value="<%= product.id() %>">
+          <%= product.name() %> $<%= product.price() %>
+          <a href="/product_edit/<%= product.id() %>">Edit or delete item</a></li>
+        <button type="submit">Purchase!</button>
+      </form>
     </ul>
   <% end %>
   <% else %>

@@ -24,6 +24,15 @@ get('/product_edit/:id') do
   erb(:product_edit)
 end
 
+# patch('/purchase/:id') do
+#   product_id = params.fetch("id").to_i()
+#   @product = Product.find(product_id)
+#   purchase_id
+#   @product.update()
+# end
+
+
+
 patch('/inventory_edit') do
   name = params.fetch("name")
   @product = Product.find(params.fetch("id").to_i())
